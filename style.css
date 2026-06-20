@@ -124,14 +124,9 @@ a {
 
 .brand-mark {
   width: 40px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
+  height: 40px;
   border-radius: 50%;
-  font-size: 14px;
-  font-weight: 800;
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  object-fit: cover;
   box-shadow: 0 4px 12px rgba(27, 143, 90, 0.35);
 }
 
