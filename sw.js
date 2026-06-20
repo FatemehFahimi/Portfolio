@@ -1,10 +1,10 @@
-const CACHE = "ff-portfolio-v1";
+const CACHE = "ff-portfolio-v2";
 const ASSETS = [
   "/",
   "/index.html",
   "/style.css",
   "/script.js",
-  "/logo.svg",
+  "/logo.png",
   "/Profile.JPG",
   "/manifest.json"
 ];
