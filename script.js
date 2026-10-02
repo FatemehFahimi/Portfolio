@@ -357,7 +357,7 @@ function initLanguageSwitcher() {
   const TITLES = {
     en: "Fatemeh Fahimi | Architecture & Urban Design",
     tr: "Fatemeh Fahimi | Mimari ve Kentsel Tasarım",
-    fa: "\u0641\u0627\u0637\u0645\u0647 \u0641\u0647\u0627\u0645\u06cc | \u0645\u0639\u0645\u0627\u0631\u06cc \u0648 \u0637\u0631\u0627\u062d\u06cc \u0634\u0647\u0631\u06cc"
+    fa: "\u0641\u0627\u0637\u0645\u0647 \u0641\u0647\u06cc\u0645\u06cc | \u0645\u0639\u0645\u0627\u0631\u06cc \u0648 \u0637\u0631\u0627\u062d\u06cc \u0634\u0647\u0631\u06cc"
   };
   const DESCRIPTIONS = {
     en: "Portfolio of Fatemeh Fahimi — architect and Master of Urban Design student at Newcastle University.",

@@ -213,10 +213,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100dvh;
 }
 
@@ -281,8 +283,9 @@ a {
   transition: width 80ms linear;
 }
 
-/* ── Header ── */
+/* ── Header (sticky in all browsers; -webkit prefix for older Safari) ── */
 .site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -1629,6 +1632,7 @@ footer p {
 @media (max-width: 830px) {
   .site-header {
     flex-wrap: nowrap;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     padding-left: max(1rem, env(safe-area-inset-left));
