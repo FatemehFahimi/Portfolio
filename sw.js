@@ -1,4 +1,4 @@
-const CACHE = "ff-portfolio-v4";
+const CACHE = "ff-portfolio-v6";
 const ASSETS = [
   "/",
   "/index.html",
