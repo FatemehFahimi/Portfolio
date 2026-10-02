@@ -1,4 +1,4 @@
-const CACHE = "ff-portfolio-v3";
+const CACHE = "ff-portfolio-v4";
 const ASSETS = [
   "/",
   "/index.html",
@@ -27,6 +27,21 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  // Cache-first for self-hosted fonts so they work offline after first load.
+  if (event.request.url.match(/\.(woff2|ttf)$/)) {
+    event.respondWith(
+      caches.match(event.request).then(
+        (cached) =>
+          cached ||
+          fetch(event.request).then((response) => {
+            const copy = response.clone();
+            caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+            return response;
+          })
+      )
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request))
   );

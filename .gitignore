@@ -3,3 +3,6 @@
 to-pdf
 to-pdf.ps1
 *.zip
+# Local-only backups & oversized unreferenced files (kept on disk, not deployed)
+/old version/
+Fatemeh-Fahimi-Portfolio-Light.pdf
