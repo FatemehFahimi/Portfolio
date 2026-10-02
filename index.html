@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0f5f4a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -24,59 +24,64 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Alegreya:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Alegreya:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Reading progress, styled as a measuring rule -->
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-  <a class="skip-link" href="#home">Skip to content</a>
+  <a class="skip-link" href="#home" data-i18n="skip.link">Skip to content</a>
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Go to top">
       <img class="brand-mark" src="logo.png" alt="FF" />
       <span class="brand-copy">
         <strong>Fatemeh Fahimi</strong>
-        <small>Architect and Urban Designer</small>
+        <small data-i18n="brand.subtitle">Architect and Urban Designer</small>
       </span>
     </a>
 
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+    <button class="nav-toggle" aria-label="Toggle navigation" data-i18n-aria="nav.toggleLabel" aria-expanded="false" aria-controls="primary-nav">
       <span class="hamburger-bar"></span>
       <span class="hamburger-bar"></span>
       <span class="hamburger-bar"></span>
     </button>
 
-    <nav class="site-nav" id="primary-nav" aria-label="Primary">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+    <nav class="site-nav" id="primary-nav" aria-label="Primary" data-i18n-aria="nav.menuLabel">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <div class="lang-switcher" role="group" aria-label="Language" data-i18n-aria="lang.groupLabel">
+        <button type="button" data-lang="en" class="is-active" aria-label="English" data-i18n-aria="lang.enLabel" title="English">EN</button>
+        <button type="button" data-lang="tr" aria-label="Türkçe" data-i18n-aria="lang.trLabel" title="Türkçe">TR</button>
+        <button type="button" data-lang="fa" aria-label="فارسی" data-i18n-aria="lang.faLabel" title="فارسی">FA</button>
+      </div>
     </nav>
   </header>
 
   <main>
     <section id="home" class="hero shell reveal">
       <div class="hero-content">
-        <p class="eyebrow">Urban Designer · Architect</p>
-        <h1>Fatemeh <span>Fahimi</span></h1>
-        <p class="lead">
-          Master of Urban Design student at Newcastle University, building sustainable and inclusive urban spaces that shape how people
+        <p class="eyebrow" data-i18n="hero.eyebrow">Urban Designer · Architect</p>
+        <h1><span data-i18n="hero.name">Fatemeh Fahimi</span></h1>
+        <p class="lead" data-i18n="hero.lead">
+          Master of Urban Design graduate from Newcastle University, building sustainable and inclusive urban spaces that shape how people
           live, move, and connect.
         </p>
         <div class="hero-actions">
-          <button class="btn btn-primary" type="button" onclick="scrollToSection('projects')">View Projects</button>
-          <button class="btn btn-ghost" type="button" onclick="scrollToSection('contact')">Get in Touch</button>
-          <a class="btn btn-link" href="CV.pdf" download>Download CV</a>
+          <button class="btn btn-primary" type="button" onclick="scrollToSection('projects')" data-i18n="hero.viewProjects">View Projects</button>
+          <button class="btn btn-ghost" type="button" onclick="scrollToSection('contact')" data-i18n="hero.getInTouch">Get in Touch</button>
+          <a class="btn btn-link" href="Fatemeh-Fahimi-CV-EN.pdf" download data-i18n="hero.downloadCV" id="cv-download-hero">Download CV</a>
         </div>
 
         <div class="hero-tags">
-          <span>Revit</span>
-          <span>Urban Masterplanning</span>
-          <span>Landscape Integration</span>
-          <span>Technical Documentation</span>
+          <span data-i18n="hero.tag1">Revit</span>
+          <span data-i18n="hero.tag2">Urban Masterplanning</span>
+          <span data-i18n="hero.tag3">Landscape Integration</span>
+          <span data-i18n="hero.tag4">Technical Documentation</span>
         </div>
       </div>
 
@@ -89,67 +94,67 @@
 
     <section id="about" class="about shell reveal">
       <div class="about-text">
-        <p class="section-kicker">About Me</p>
-        <h2>My Design Philosophy</h2>
-        <p>
-          I am an architecture graduate and urban design postgraduate passionate about creating sustainable and people-centred environments. I hold a Bachelor of Architecture from Bahçeşehir University, Turkey (2021–2025), and am currently pursuing a Master of Urban Design at Newcastle University, United Kingdom (2025–Present).
+        <p class="section-kicker" data-i18n="about.kicker">About Me</p>
+        <h2 data-i18n="about.title">My Design Philosophy</h2>
+        <p data-i18n="about.p1">
+          I am an architecture graduate with a Master's degree in Urban Design, passionate about creating sustainable and people-centred environments. I hold a Master of Urban Design from Newcastle University, United Kingdom (2025–2026), and a Bachelor of Architecture from Bahçeşehir University, Turkey (2021–2025).
         </p>
-        <p>
+        <p data-i18n="about.p2">
           Through academic and professional experience at Ryder Architecture, MawsonKerr, and Architenko Brussels, I have developed skills in architectural design, urban masterplanning, landscape integration, site analysis, spatial planning, 3D modelling, and visualisation. Alongside my design background, freelance work in digital marketing and content creation has strengthened my communication and presentation skills. I am particularly interested in the relationship between people, place, and the built environment, with a focus on creating meaningful and resilient spaces.
         </p>
         <div class="skill-cloud">
-          <span class="cloud-label">Skills</span>
-          <span>3D Modeling</span>
-          <span>Site Analysis</span>
-          <span>Masterplanning</span>
-          <span>Landscape Design</span>
-          <span>Urban Design</span>
-          <span>Rendering</span>
-          <span>Technical Drawing</span>
-          <span>WordPress</span>
-          <span>SEO</span>
+          <span class="cloud-label" data-i18n="about.skillsLabel">Skills</span>
+          <span data-i18n="about.skill1">3D Modeling</span>
+          <span data-i18n="about.skill2">Site Analysis</span>
+          <span data-i18n="about.skill3">Masterplanning</span>
+          <span data-i18n="about.skill4">Landscape Design</span>
+          <span data-i18n="about.skill5">Urban Design</span>
+          <span data-i18n="about.skill6">Rendering</span>
+          <span data-i18n="about.skill7">Technical Drawing</span>
+          <span data-i18n="about.skill8">WordPress</span>
+          <span data-i18n="about.skill9">SEO</span>
         </div>
         <div class="skill-cloud">
-          <span class="cloud-label">Programs</span>
-          <span>AutoCAD</span>
-          <span>Revit</span>
-          <span>Photoshop</span>
-          <span>Enscape</span>
+          <span class="cloud-label" data-i18n="about.programsLabel">Programs</span>
+          <span data-i18n="about.program1">AutoCAD</span>
+          <span data-i18n="about.program2">Revit</span>
+          <span data-i18n="about.program3">Photoshop</span>
+          <span data-i18n="about.program4">Enscape</span>
         </div>
       </div>
 
       <aside class="about-metrics">
         <article>
-          <h4 class="metric-value">6+</h4>
-          <p class="metric-label">Years of Academic Design Experience</p>
-          <p class="metric-note">United Kingdom · Turkey · Iran</p>
+          <h4 class="metric-value" data-i18n="about.metric1Value">6+</h4>
+          <p class="metric-label" data-i18n="about.metric1Label">Years of Academic Design Experience</p>
+          <p class="metric-note" data-i18n="about.metric1Note">United Kingdom · Turkey · Iran</p>
         </article>
         <article>
-          <h4 class="metric-value">3</h4>
-          <p class="metric-label">Countries Worked In</p>
-          <p class="metric-note">United Kingdom · Belgium · Iran</p>
+          <h4 class="metric-value" data-i18n="about.metric2Value">3</h4>
+          <p class="metric-label" data-i18n="about.metric2Label">Countries Worked In</p>
+          <p class="metric-note" data-i18n="about.metric2Note">United Kingdom · Belgium · Iran</p>
         </article>
         <article>
-          <h4 class="metric-value">£12k+</h4>
-          <p class="metric-label">Scholarships Received</p>
-          <p class="metric-note">£7,000 international · £5,850 academic</p>
+          <h4 class="metric-value" data-i18n="about.metric3Value">£12k+</h4>
+          <p class="metric-label" data-i18n="about.metric3Label">Scholarships Received</p>
+          <p class="metric-note" data-i18n="about.metric3Note">£7,000 international · £5,850 academic</p>
         </article>
         <article>
-          <h4 class="metric-value">3</h4>
-          <p class="metric-label">Languages</p>
-          <p class="metric-note">English · Persian · Turkish</p>
+          <h4 class="metric-value" data-i18n="about.metric4Value">3</h4>
+          <p class="metric-label" data-i18n="about.metric4Label">Languages</p>
+          <p class="metric-note" data-i18n="about.metric4Note">English · Persian · Turkish</p>
         </article>
       </aside>
     </section>
 
     <section id="projects" class="projects shell reveal">
       <div class="section-heading">
-        <p class="section-kicker">Selected Projects</p>
-        <h2>Architecture · Urban Design · Landscape</h2>
+        <p class="section-kicker" data-i18n="projects.kicker">Selected Projects</p>
+        <h2 data-i18n="projects.title">Architecture · Urban Design · Landscape</h2>
       </div>
 
       <div class="project-category">
-        <h3 class="category-heading">Architecture</h3>
+        <h3 class="category-heading" data-i18n="projects.architecture">Architecture</h3>
           <div class="project-grid">
             <article class="project-card featured-card reveal-item">
               <button class="project-cover" type="button"
@@ -159,15 +164,15 @@
                 <img src="Project/Architecture/kucukcekmece-community-center/cover.jpg" alt="Küçükçekmece Community Center">
               <span class="cover-overlay">
                 <span class="cover-icon">+</span>
-                <span class="cover-text">View image</span>
+                <span class="cover-text" data-i18n="projects.viewImage">View image</span>
               </span>
             </button>
             <div class="project-content">
-              <h3>Community Center</h3>
-              <p class="location">Küçükçekmece, Istanbul, Turkey</p>
-              <a class="postcode-link" href="https://maps.app.goo.gl/954C1Do1gKmdGdTW6" target="_blank" rel="noopener">post code 34290</a>
-              <p>This project proposes a community centre that strengthens social interaction and community engagement within the neighbourhood. Responding to the site's topography, urban connections, and surrounding land uses, the design transforms a solid building mass into interconnected public and semi-private spaces. The centre includes a library, exhibition areas, workshops, a café, a gym, and multi-purpose halls organised around open courtyards and communal spaces. By combining cultural, educational, and recreational activities, the project creates an inclusive destination that promotes community well-being and everyday social interaction.</p>
-              <a class="project-download" href="Project/Architecture/kucukcekmece-community-center/project-compressed.pdf" download aria-label="Download Community Center project PDF">Download Project PDF</a>
+              <h3 data-i18n="projects.p1Title">Community Center</h3>
+              <p class="location" data-i18n="projects.p1Location">Küçükçekmece, Istanbul, Turkey</p>
+              <a class="postcode-link" href="https://maps.app.goo.gl/954C1Do1gKmdGdTW6" target="_blank" rel="noopener" data-i18n="projects.p1Postcode">post code 34290</a>
+              <p data-i18n="projects.p1Desc">This project proposes a community centre that strengthens social interaction and community engagement within the neighbourhood. Responding to the site's topography, urban connections, and surrounding land uses, the design transforms a solid building mass into interconnected public and semi-private spaces. The centre includes a library, exhibition areas, workshops, a café, a gym, and multi-purpose halls organised around open courtyards and communal spaces. By combining cultural, educational, and recreational activities, the project creates an inclusive destination that promotes community well-being and everyday social interaction.</p>
+              <a class="project-download" href="Project/Architecture/kucukcekmece-community-center/project-compressed.pdf" download aria-label="Download Community Center project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
             </div>
           </article>
 
@@ -176,18 +181,18 @@
               data-lightbox="Project/Architecture/Macka-Accomodation/cover.jpg"
               data-title="Complex Building — Maçka, Istanbul"
               aria-label="View larger image of Complex Building">
-              <img src="Project/Architecture/Macka-Accomodation/cover.jpg" alt="Maçka Accommodation Complex">
-              <span class="cover-overlay">
-                <span class="cover-icon">+</span>
-                <span class="cover-text">View image</span>
-              </span>
+                <img src="Project/Architecture/Macka-Accomodation/cover.jpg" alt="Maçka Accommodation Complex">
+                <span class="cover-overlay">
+                  <span class="cover-icon">+</span>
+                  <span class="cover-text" data-i18n="projects.viewImage">View image</span>
+                </span>
             </button>
             <div class="project-content">
-              <h3>Complex Building</h3>
-              <p class="location">Maçka, Istanbul, Turkey</p>
-              <a class="postcode-link" href="https://maps.app.goo.gl/8gRmvkHPFgyYDUvq8" target="_blank" rel="noopener">post code 34367</a>
-              <p>This project proposes a mixed-use accommodation complex that responds to the site's topography, urban context, and surrounding views while balancing public and private spaces. The design evolves from a simple building mass through a series of strategic additions and subtractions that enhance daylight, circulation, and visual connectivity. Following the natural slope of the site, the stepped form creates terraces, semi-open spaces, and communal areas that encourage social interaction. By combining residential units with shared facilities such as study spaces, workshops, cafés, and recreational areas, the project creates a vibrant living environment that fosters community, comfort, and a strong connection to the landscape.</p>
-              <a class="project-download" href="Project/Architecture/Macka-Accomodation/project-compressed.pdf" download aria-label="Download Complex Building project PDF">Download Project PDF</a>
+              <h3 data-i18n="projects.p2Title">Complex Building</h3>
+              <p class="location" data-i18n="projects.p2Location">Maçka, Istanbul, Turkey</p>
+              <a class="postcode-link" href="https://maps.app.goo.gl/8gRmvkHPFgyYDUvq8" target="_blank" rel="noopener" data-i18n="projects.p2Postcode">post code 34367</a>
+              <p data-i18n="projects.p2Desc">This project proposes a mixed-use accommodation complex that responds to the site's topography, urban context, and surrounding views while balancing public and private spaces. The design evolves from a simple building mass through a series of strategic additions and subtractions that enhance daylight, circulation, and visual connectivity. Following the natural slope of the site, the stepped form creates terraces, semi-open spaces, and communal areas that encourage social interaction. By combining residential units with shared facilities such as study spaces, workshops, cafés, and recreational areas, the project creates a vibrant living environment that fosters community, comfort, and a strong connection to the landscape.</p>
+              <a class="project-download" href="Project/Architecture/Macka-Accomodation/project-compressed.pdf" download aria-label="Download Complex Building project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
             </div>
           </article>
 
@@ -196,24 +201,24 @@
               data-lightbox="Project/Architecture/Bomonti-Architectural-School/cover.jpg"
               data-title="Architectural School — Bomonti, Istanbul"
               aria-label="View larger image of Architectural School">
-              <img src="Project/Architecture/Bomonti-Architectural-School/cover.jpg" alt="Bomonti Architectural School">
-              <span class="cover-overlay">
-                <span class="cover-icon">+</span>
-                <span class="cover-text">View image</span>
-              </span>
+                <img src="Project/Architecture/Bomonti-Architectural-School/cover.jpg" alt="Bomonti Architectural School">
+                <span class="cover-overlay">
+                  <span class="cover-icon">+</span>
+                  <span class="cover-text" data-i18n="projects.viewImage">View image</span>
+                </span>
             </button>
             <div class="project-content">
-              <h3>Architectural School</h3>
-              <p class="location">Bomonti, Istanbul, Turkey</p>
-              <a class="postcode-link" href="https://maps.app.goo.gl/v7J8DrnoAQmTdSkS9" target="_blank" rel="noopener">post code 34381</a>
-              <p>This project proposes an Architectural School designed as a dynamic environment for learning, collaboration, and community engagement. The concept is inspired by the spine, with the building's structural framework remaining visible and acting as the main organising element. Similar to a spine, academic and social spaces are connected to this central core, creating a clear spatial hierarchy and strong visual connections throughout the building. The school accommodates studios, classrooms, workshops, digital labs, a library, and exhibition spaces, organised around open circulation routes and shared learning environments. By combining education with public interaction, the project fosters creativity, collaboration, and the exchange of ideas.</p>
-              <a class="project-download" href="Project/Architecture/Bomonti-Architectural-School/project-compressed.pdf" download aria-label="Download Architectural School project PDF">Download Project PDF</a>
+              <h3 data-i18n="projects.p3Title">Architectural School</h3>
+              <p class="location" data-i18n="projects.p3Location">Bomonti, Istanbul, Turkey</p>
+              <a class="postcode-link" href="https://maps.app.goo.gl/v7J8DrnoAQmTdSkS9" target="_blank" rel="noopener" data-i18n="projects.p3Postcode">post code 34381</a>
+              <p data-i18n="projects.p3Desc">This project proposes an Architectural School designed as a dynamic environment for learning, collaboration, and community engagement. The concept is inspired by the spine, with the building's structural framework remaining visible and acting as the main organising element. Similar to a spine, academic and social spaces are connected to this central core, creating a clear spatial hierarchy and strong visual connections throughout the building. The school accommodates studios, classrooms, workshops, digital labs, a library, and exhibition spaces, organised around open circulation routes and shared learning environments. By combining education with public interaction, the project fosters creativity, collaboration, and the exchange of ideas.</p>
+              <a class="project-download" href="Project/Architecture/Bomonti-Architectural-School/project-compressed.pdf" download aria-label="Download Architectural School project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
             </div>
           </article>
         </div>
 
         <div class="subcategory">
-          <h4 class="subcategory-heading">Work Experience</h4>
+          <h4 class="subcategory-heading" data-i18n="projects.workExperience">Work Experience</h4>
           <div class="project-grid">
             <article class="project-card featured-card">
               <button class="project-cover" type="button"
@@ -223,14 +228,14 @@
                 <img src="Project/Architecture-Work Experience/Brussels-Belgium-Architenko-Office/cover.jpg" alt="Architenko Office, Brussels">
                 <span class="cover-overlay">
                   <span class="cover-icon">+</span>
-                  <span class="cover-text">View image</span>
+                  <span class="cover-text" data-i18n="projects.viewImage">View image</span>
                 </span>
               </button>
               <div class="project-content">
-                <h3>Architenko Office</h3>
-                <p class="location">Brussels, Belgium</p>
-                <p>During a 90-day internship in Architenko Office, I contributed to the design and technical development of architectural projects through the creation of entrance gate designs, building components, 3D models, and technical documentation. In addition, I conducted supplier and factory research to identify cost-effective manufacturing solutions for project components. This experience enhanced my skills in architectural detailing, technical design, and project coordination.</p>
-                <a class="project-download" href="Project/Architecture-Work Experience/Brussels-Belgium-Architenko-Office/project-compressed.pdf" download aria-label="Download Architenko Office project PDF">Download Project PDF</a>
+                <h3 data-i18n="projects.w1Title">Architenko Office</h3>
+                <p class="location" data-i18n="projects.w1Location">Brussels, Belgium</p>
+                <p data-i18n="projects.w1Desc">During a 90-day internship in Architenko Office, I contributed to the design and technical development of architectural projects through the creation of entrance gate designs, building components, 3D models, and technical documentation. In addition, I conducted supplier and factory research to identify cost-effective manufacturing solutions for project components. This experience enhanced my skills in architectural detailing, technical design, and project coordination.</p>
+                <a class="project-download" href="Project/Architecture-Work Experience/Brussels-Belgium-Architenko-Office/project-compressed.pdf" download aria-label="Download Architenko Office project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
               </div>
             </article>
 
@@ -242,14 +247,14 @@
                 <img src="Project/Architecture-Work Experience/Interior-and-Façade-Design/cover.jpg" alt="Interior and Façade Design, Farkhan Office">
                 <span class="cover-overlay">
                   <span class="cover-icon">+</span>
-                  <span class="cover-text">View image</span>
+                  <span class="cover-text" data-i18n="projects.viewImage">View image</span>
                 </span>
               </button>
               <div class="project-content">
-                <h3>Farkhan Office</h3>
-                <p class="location">Iran</p>
-                <p>Worked on both the design and construction phases of architectural projects within a private architectural practice. Responsibilities included construction supervision of ongoing building projects, reviewing construction details and connections, participating in material selection, and coordinating with site teams. In parallel, I contributed to conceptual and schematic design development, producing architectural diagrams, design studies, and presentation materials. This experience strengthened my understanding of the integration of architectural design with real-world construction processes.</p>
-                <a class="project-download" href="Project/Architecture-Work Experience/Interior-and-Façade-Design/project-compressed.pdf" download aria-label="Download Farkhan Office project PDF">Download Project PDF</a>
+                <h3 data-i18n="projects.w2Title">Farkhan Office</h3>
+                <p class="location" data-i18n="projects.w2Location">Iran</p>
+                <p data-i18n="projects.w2Desc">Worked on both the design and construction phases of architectural projects within a private architectural practice. Responsibilities included construction supervision of ongoing building projects, reviewing construction details and connections, participating in material selection, and coordinating with site teams. In parallel, I contributed to conceptual and schematic design development, producing architectural diagrams, design studies, and presentation materials. This experience strengthened my understanding of the integration of architectural design with real-world construction processes.</p>
+                <a class="project-download" href="Project/Architecture-Work Experience/Interior-and-Façade-Design/project-compressed.pdf" download aria-label="Download Farkhan Office project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
               </div>
             </article>
           </div>
@@ -257,7 +262,7 @@
       </div>
 
       <div class="project-category">
-        <h3 class="category-heading">Urban Design</h3>
+        <h3 class="category-heading" data-i18n="projects.urbanDesign">Urban Design</h3>
         <div class="project-grid">
           <article class="project-card featured-card">
             <button class="project-cover" type="button"
@@ -267,15 +272,15 @@
               <img src="Project/Urban Design/Newcastle-High-Level-Bridge/cover.jpg" alt="Newcastle High Level Bridge">
               <span class="cover-overlay">
                 <span class="cover-icon">+</span>
-                <span class="cover-text">View image</span>
+                <span class="cover-text" data-i18n="projects.viewImage">View image</span>
               </span>
             </button>
             <div class="project-content">
-              <h3>High Level Bridge</h3>
-              <p class="location">Newcastle upon Tyne, UK</p>
-              <a class="postcode-link" href="https://maps.app.goo.gl/dDvuyHxQS25r7C6f9" target="_blank" rel="noopener">post code NE8 2AW</a>
-              <p>This project proposes an urban design strategy that reconnects Newcastle and Gateshead through the revitalisation of the historic High Level Bridge and its surrounding riverfront. The design focuses on improving pedestrian and cycling connectivity, activating underused green spaces, and creating a vibrant cultural corridor that links heritage landmarks, public spaces, libraries, and recreational areas. Through interventions such as green infrastructure, temporary markets, outdoor learning spaces, cultural activities, and enhanced public routes, the project transforms neglected urban spaces into safe, active, and accessible destinations. By combining heritage preservation, environmental sustainability, and community engagement, the proposal aims to strengthen social interaction, improve spatial justice, and create a memorable urban experience along the River Tyne.</p>
-              <a class="project-download" href="Project/Urban Design/Newcastle-High-Level-Bridge/project-compressed.pdf" download aria-label="Download High Level Bridge project PDF">Download Project PDF</a>
+              <h3 data-i18n="projects.u1Title">High Level Bridge</h3>
+              <p class="location" data-i18n="projects.u1Location">Newcastle upon Tyne, UK</p>
+              <a class="postcode-link" href="https://maps.app.goo.gl/dDvuyHxQS25r7C6f9" target="_blank" rel="noopener" data-i18n="projects.u1Postcode">post code NE8 2AW</a>
+              <p data-i18n="projects.u1Desc">This project proposes an urban design strategy that reconnects Newcastle and Gateshead through the revitalisation of the historic High Level Bridge and its surrounding riverfront. The design focuses on improving pedestrian and cycling connectivity, activating underused green spaces, and creating a vibrant cultural corridor that links heritage landmarks, public spaces, libraries, and recreational areas. Through interventions such as green infrastructure, temporary markets, outdoor learning spaces, cultural activities, and enhanced public routes, the project transforms neglected urban spaces into safe, active, and accessible destinations. By combining heritage preservation, environmental sustainability, and community engagement, the proposal aims to strengthen social interaction, improve spatial justice, and create a memorable urban experience along the River Tyne.</p>
+              <a class="project-download" href="Project/Urban Design/Newcastle-High-Level-Bridge/project-compressed.pdf" download aria-label="Download High Level Bridge project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
             </div>
           </article>
 
@@ -287,15 +292,15 @@
               <img src="Project/Urban Design/Newcastle-Newburn/cover.jpg" alt="Newcastle Newburn riverside development">
               <span class="cover-overlay">
                 <span class="cover-icon">+</span>
-                <span class="cover-text">View image</span>
+                <span class="cover-text" data-i18n="projects.viewImage">View image</span>
               </span>
             </button>
             <div class="project-content">
-              <h3>Newburn</h3>
-              <p class="location">Newcastle upon Tyne, UK</p>
-              <a class="postcode-link" href="https://maps.app.goo.gl/JE1da9d2wSvC32eT7" target="_blank" rel="noopener">post code NE15 8NY</a>
-              <p>This project proposes an alternative housing development for a 51-hectare riverside site, addressing flooding, affordability, and sustainable growth. Guided by the principle of "flow with water, not against it," the design combines flood-resilient housing with a mix of private, affordable, social, and co-housing models. Green corridors, community spaces, and nature-based water management strategies are integrated to create a resilient and inclusive neighbourhood that promotes social interaction, environmental sustainability, and long-term adaptability.</p>
-              <a class="project-download" href="Project/Urban Design/Newcastle-Newburn/project-compressed.pdf" download aria-label="Download Newburn project PDF">Download Project PDF</a>
+              <h3 data-i18n="projects.u2Title">Newburn</h3>
+              <p class="location" data-i18n="projects.u2Location">Newcastle upon Tyne, UK</p>
+              <a class="postcode-link" href="https://maps.app.goo.gl/JE1da9d2wSvC32eT7" target="_blank" rel="noopener" data-i18n="projects.u2Postcode">post code NE15 8NY</a>
+              <p data-i18n="projects.u2Desc">This project proposes an alternative housing development for a 51-hectare riverside site, addressing flooding, affordability, and sustainable growth. Guided by the principle of "flow with water, not against it," the design combines flood-resilient housing with a mix of private, affordable, social, and co-housing models. Green corridors, community spaces, and nature-based water management strategies are integrated to create a resilient and inclusive neighbourhood that promotes social interaction, environmental sustainability, and long-term adaptability.</p>
+              <a class="project-download" href="Project/Urban Design/Newcastle-Newburn/project-compressed.pdf" download aria-label="Download Newburn project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
             </div>
           </article>
 
@@ -307,21 +312,21 @@
               <img src="Project/Urban Design/Newcastle-Ouseburn/cover.jpg" alt="Newcastle Ouseburn regeneration">
               <span class="cover-overlay">
                 <span class="cover-icon">+</span>
-                <span class="cover-text">View image</span>
+                <span class="cover-text" data-i18n="projects.viewImage">View image</span>
               </span>
             </button>
             <div class="project-content">
-              <h3>Ouseburn</h3>
-              <p class="location">Newcastle upon Tyne, UK</p>
-              <a class="postcode-link" href="https://maps.app.goo.gl/nEx2bgHsEWTxYWpZ6" target="_blank" rel="noopener">post code NE6 1LH</a>
-              <p>This project proposes a design-code-led regeneration strategy for a former industrial riverside site, transforming it into a vibrant mixed-use destination while preserving its industrial heritage. Guided by the principles of ecological connectivity, industrial identity, and creative diversity, the design introduces cultural spaces, creative workspaces, community facilities, and active public areas that respond to the site's existing character. Green corridors, pedestrian and cycling routes, and riverside public spaces strengthen connections across the site and improve accessibility. By adapting existing structures and integrating landscape and heritage assets, the project creates a distinctive and sustainable environment that supports community engagement and long-term urban regeneration.</p>
-              <a class="project-download" href="Project/Urban Design/Newcastle-Ouseburn/project-compressed.pdf" download aria-label="Download Ouseburn project PDF">Download Project PDF</a>
+              <h3 data-i18n="projects.u3Title">Ouseburn</h3>
+              <p class="location" data-i18n="projects.u3Location">Newcastle upon Tyne, UK</p>
+              <a class="postcode-link" href="https://maps.app.goo.gl/nEx2bgHsEWTxYWpZ6" target="_blank" rel="noopener" data-i18n="projects.u3Postcode">post code NE6 1LH</a>
+              <p data-i18n="projects.u3Desc">This project proposes a design-code-led regeneration strategy for a former industrial riverside site, transforming it into a vibrant mixed-use destination while preserving its industrial heritage. Guided by the principles of ecological connectivity, industrial identity, and creative diversity, the design introduces cultural spaces, creative workspaces, community facilities, and active public areas that respond to the site's existing character. Green corridors, pedestrian and cycling routes, and riverside public spaces strengthen connections across the site and improve accessibility. By adapting existing structures and integrating landscape and heritage assets, the project creates a distinctive and sustainable environment that supports community engagement and long-term urban regeneration.</p>
+              <a class="project-download" href="Project/Urban Design/Newcastle-Ouseburn/project-compressed.pdf" download aria-label="Download Ouseburn project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
             </div>
           </article>
         </div>
 
         <div class="subcategory">
-          <h4 class="subcategory-heading">Work Experience</h4>
+          <h4 class="subcategory-heading" data-i18n="projects.workExperience">Work Experience</h4>
           <div class="project-grid">
             <article class="project-card featured-card">
               <button class="project-cover" type="button"
@@ -331,14 +336,14 @@
                 <img src="Project/Urban-Design-Work-Experience/Newcastle-UK-Mawsonkerr/cover.jpg" alt="MawsonKerr design workshop">
                 <span class="cover-overlay">
                   <span class="cover-icon">+</span>
-                  <span class="cover-text">View image</span>
+                  <span class="cover-text" data-i18n="projects.viewImage">View image</span>
                 </span>
               </button>
               <div class="project-content">
-                <h3>MawsonKerr Office</h3>
-                <p class="location">Newcastle upon Tyne, UK</p>
-                <p>Collaborated in a design workshop focused on transforming an underused urban space into an inclusive and vibrant temporary public space. Contributed to site analysis, concept development, spatial design, and presentation materials while working closely with a multidisciplinary team.</p>
-                <a class="project-download" href="Project/Urban-Design-Work-Experience/Newcastle-UK-Mawsonkerr/project-compressed.pdf" download aria-label="Download MawsonKerr Office project PDF">Download Project PDF</a>
+                <h3 data-i18n="projects.uw1Title">MawsonKerr Office</h3>
+                <p class="location" data-i18n="projects.uw1Location">Newcastle upon Tyne, UK</p>
+                <p data-i18n="projects.uw1Desc">Collaborated in a design workshop focused on transforming an underused urban space into an inclusive and vibrant temporary public space. Contributed to site analysis, concept development, spatial design, and presentation materials while working closely with a multidisciplinary team.</p>
+                <a class="project-download" href="Project/Urban-Design-Work-Experience/Newcastle-UK-Mawsonkerr/project-compressed.pdf" download aria-label="Download MawsonKerr Office project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
               </div>
             </article>
 
@@ -350,14 +355,14 @@
                 <img src="Project/Urban-Design-Work-Experience/Newcastle-UK-Ryder-Office/cover.jpg" alt="Ryder Architecture internship work">
                 <span class="cover-overlay">
                   <span class="cover-icon">+</span>
-                  <span class="cover-text">View image</span>
+                  <span class="cover-text" data-i18n="projects.viewImage">View image</span>
                 </span>
               </button>
               <div class="project-content">
-                <h3>Ryder Office</h3>
-                <p class="location">Newcastle upon Tyne, UK</p>
-                <p>Completed a short-term internship within an architectural practice, contributing to urban design and masterplanning projects from research and analysis through to design presentation stages. Responsibilities included precedent analysis, brief development, site analysis, spatial planning, massing studies, and concept generation. Developed 3D models using Revit and produced presentation drawings, visualisations, renderings, and portfolio materials to communicate design proposals effectively. This experience provided valuable insight into the professional urban design process, from contextual research and concept development to project presentation and communication.</p>
-                <a class="project-download" href="Project/Urban-Design-Work-Experience/Newcastle-UK-Ryder-Office/project-compressed.pdf" download aria-label="Download Ryder Office project PDF">Download Project PDF</a>
+                <h3 data-i18n="projects.uw2Title">Ryder Office</h3>
+                <p class="location" data-i18n="projects.uw2Location">Newcastle upon Tyne, UK</p>
+                <p data-i18n="projects.uw2Desc">Completed a short-term internship within an architectural practice, contributing to urban design and masterplanning projects from research and analysis through to design presentation stages. Responsibilities included precedent analysis, brief development, site analysis, spatial planning, massing studies, and concept generation. Developed 3D models using Revit and produced presentation drawings, visualisations, renderings, and portfolio materials to communicate design proposals effectively. This experience provided valuable insight into the professional urban design process, from contextual research and concept development to project presentation and communication.</p>
+                <a class="project-download" href="Project/Urban-Design-Work-Experience/Newcastle-UK-Ryder-Office/project-compressed.pdf" download aria-label="Download Ryder Office project PDF" data-i18n="projects.downloadPDF">Download Project PDF</a>
               </div>
             </article>
           </div>
@@ -366,62 +371,62 @@
     </section>
 
     <section id="experience" class="experience shell reveal">
-      <p class="section-kicker">Experience</p>
-      <h2>Selected Roles &amp; Collaboration</h2>
+      <p class="section-kicker" data-i18n="experience.kicker">Experience</p>
+      <h2 data-i18n="experience.title">Selected Roles &amp; Collaboration</h2>
 
       <div class="timeline">
         <article class="timeline-item">
-          <p class="year">Feb 2026</p>
-          <h3>Short-Term Intern · Ryder Architecture</h3>
-          <p>Urban design proposals, site analysis, masterplanning, and 3D Revit modeling in Newcastle, England.</p>
+          <p class="year" data-i18n="experience.r1Year">Feb 2026</p>
+          <h3 data-i18n="experience.r1Title">Short-Term Intern · Ryder Architecture</h3>
+          <p data-i18n="experience.r1Desc">Urban design proposals, site analysis, masterplanning, and 3D Revit modeling in Newcastle, England.</p>
         </article>
 
         <article class="timeline-item">
-          <p class="year">Nov 2025</p>
-          <h3>Design Workshop Participant · MawsonKerr</h3>
-          <p>Designed an inclusive temporary public-space intervention to revitalize an underused street in Newcastle.</p>
+          <p class="year" data-i18n="experience.r2Year">Nov 2025</p>
+          <h3 data-i18n="experience.r2Title">Design Workshop Participant · MawsonKerr</h3>
+          <p data-i18n="experience.r2Desc">Designed an inclusive temporary public-space intervention to revitalize an underused street in Newcastle.</p>
         </article>
 
         <article class="timeline-item">
-          <p class="year">Jul–Oct 2024</p>
-          <h3>Intern Architect · Architenko</h3>
-          <p>Entrance gate and building component design, 3D models, technical documentation, and site coordination in Brussels, Belgium.</p>
+          <p class="year" data-i18n="experience.r3Year">Jul–Oct 2024</p>
+          <h3 data-i18n="experience.r3Title">Intern Architect · Architenko</h3>
+          <p data-i18n="experience.r3Desc">Entrance gate and building component design, 3D models, technical documentation, and site coordination in Brussels, Belgium.</p>
         </article>
 
         <article class="timeline-item">
-          <p class="year">2023–2025</p>
-          <h3>Architectural Assistant · Private Offices</h3>
-          <p>Interior design, façade elevations, construction supervision, and coordination support in Iran.</p>
+          <p class="year" data-i18n="experience.r4Year">2023–2025</p>
+          <h3 data-i18n="experience.r4Title">Architectural Assistant · Private Offices</h3>
+          <p data-i18n="experience.r4Desc">Interior design, façade elevations, construction supervision, and coordination support in Iran.</p>
         </article>
 
         <article class="timeline-item">
-          <p class="year">2021–2022</p>
-          <h3>Sales Manager · Hooman Company</h3>
-          <p>Managed sales operations, built customer relationships, and coordinated with marketing teams in Iran.</p>
+          <p class="year" data-i18n="experience.r5Year">2021–2022</p>
+          <h3 data-i18n="experience.r5Title">Sales Manager · Hooman Company</h3>
+          <p data-i18n="experience.r5Desc">Managed sales operations, built customer relationships, and coordinated with marketing teams in Iran.</p>
         </article>
 
         <article class="timeline-item">
-          <p class="year">2019–2022</p>
-          <h3>Social Media &amp; Digital Marketing Specialist · Freelance</h3>
-          <p>Managed social media accounts, created WordPress content, applied SEO strategies, and optimized campaigns for various clients.</p>
+          <p class="year" data-i18n="experience.r6Year">2019–2022</p>
+          <h3 data-i18n="experience.r6Title">Social Media &amp; Digital Marketing Specialist · Freelance</h3>
+          <p data-i18n="experience.r6Desc">Managed social media accounts, created WordPress content, applied SEO strategies, and optimized campaigns for various clients.</p>
         </article>
       </div>
     </section>
 
     <section id="contact" class="contact shell reveal">
-      <p class="section-kicker">Let's Connect</p>
-      <h2>Currently based in Newcastle upon Tyne, UK</h2>
-      <p>I am open to design internships, collaborations, and international architecture-focused opportunities.</p>
+      <p class="section-kicker" data-i18n="contact.kicker">Let's Connect</p>
+      <h2 data-i18n="contact.title">Currently based in Newcastle upon Tyne, UK</h2>
+      <p data-i18n="contact.desc">I am open to design internships, collaborations, and international architecture-focused opportunities.</p>
 
       <form class="contact-form" id="contact-form" novalidate>
         <div class="form-row">
-          <input class="form-input" type="text" name="name" placeholder="Name" required aria-label="Your name" />
-          <input class="form-input" type="email" name="email" placeholder="Email" required aria-label="Your email" />
+          <input class="form-input" type="text" name="name" placeholder="Name" required aria-label="Your name" data-i18n-placeholder="contact.namePlaceholder" />
+          <input class="form-input" type="email" name="email" placeholder="Email" required aria-label="Your email" data-i18n-placeholder="contact.emailPlaceholder" />
         </div>
-        <textarea class="form-input form-textarea" name="message" rows="4" placeholder="Message" required aria-label="Your message"></textarea>
+        <textarea class="form-input form-textarea" name="message" rows="4" placeholder="Message" required aria-label="Your message" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
         <div class="form-footer">
           <button class="form-submit" type="submit">
-            <span class="btn-label">Send</span>
+            <span class="btn-label" data-i18n="contact.send">Send</span>
             <span class="btn-spinner"></span>
             <span class="btn-check">&#10003;</span>
           </button>
@@ -430,19 +435,19 @@
       </form>
 
       <div class="contact-links">
-        <a class="contact-link email" href="mailto:fatemehfahimi2001@gmail.com">fatemehfahimi2001@gmail.com</a>
-        <a class="contact-link linkedin" href="https://linkedin.com/in/fatemeh-fahimi-550a352ba" target="_blank" rel="noopener" aria-label="Open LinkedIn profile">LinkedIn Profile</a>
-        <a class="contact-link cv" href="CV.pdf" download>Download CV</a>
+        <a class="contact-link email" href="mailto:fatemehfahimi2001@gmail.com" data-i18n="contact.emailLabel">fatemehfahimi2001@gmail.com</a>
+        <a class="contact-link linkedin" href="https://linkedin.com/in/fatemeh-fahimi-550a352ba" target="_blank" rel="noopener" aria-label="Open LinkedIn profile" data-i18n="contact.linkedinLabel">LinkedIn Profile</a>
+        <a class="contact-link cv" href="Fatemeh-Fahimi-CV-EN.pdf" download data-i18n="contact.downloadCV" id="cv-download-contact">Download CV</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Fatemeh Fahimi · Architecture &amp; Urban Design</p>
+    <p data-i18n="footer.copyright">© 2026 Fatemeh Fahimi · Architecture &amp; Urban Design</p>
   </footer>
 
   <!-- Lightbox for project covers -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image">
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image" data-i18n-aria="projects.lightboxLabel">
     <button class="lightbox-close" type="button" aria-label="Close image">&times;</button>
     <figure class="lightbox-figure">
       <img id="lightbox-img" src="" alt="" />
@@ -450,10 +455,11 @@
     </figure>
   </div>
 
-  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
+  <button class="back-to-top" type="button" aria-label="Back to top" data-i18n-aria="nav.topLabel" title="Back to top" data-i18n-title="nav.topLabel">↑</button>
 
   <div class="custom-cursor" aria-hidden="true"></div>
 
+  <script src="translations.js"></script>
   <script src="script.js"></script>
   <script>
     if ("serviceWorker" in navigator) {

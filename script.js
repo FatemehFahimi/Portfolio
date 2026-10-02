@@ -248,7 +248,8 @@ function initContactForm() {
     const message = messageInput?.value.trim();
 
     if (!name || !email || !message) {
-      status.textContent = "Please fill in all fields.";
+      const t = translations[document.documentElement.lang] || translations.en;
+      status.textContent = t["contact.fillAll"] || "Please fill in all fields.";
       status.className = "form-status error";
       return;
     }
@@ -261,7 +262,8 @@ function initContactForm() {
 
     btn.disabled = true;
     btn.classList.add("is-success");
-    status.textContent = "Opening mail app…";
+    const t2 = translations[document.documentElement.lang] || translations.en;
+    status.textContent = t2["contact.opening"] || "Opening mail app…";
     status.className = "form-status success";
 
     window.location.href = mailto;
@@ -346,7 +348,131 @@ function initCounters() {
   metrics.forEach((el) => observer.observe(el));
 }
 
-/* ── Init all ── */
+/* ── Language switcher (EN / TR / FA segmented + ?lang= deep links) ── */
+function initLanguageSwitcher() {
+  const switcher = document.querySelector(".lang-switcher");
+  if (!switcher || typeof translations === "undefined") return;
+
+  const LANGS = ["en", "tr", "fa"];
+  const TITLES = {
+    en: "Fatemeh Fahimi | Architecture & Urban Design",
+    tr: "Fatemeh Fahimi | Mimari ve Kentsel Tasarım",
+    fa: "\u0641\u0627\u0637\u0645\u0647 \u0641\u0647\u0627\u0645\u06cc | \u0645\u0639\u0645\u0627\u0631\u06cc \u0648 \u0637\u0631\u0627\u062d\u06cc \u0634\u0647\u0631\u06cc"
+  };
+  const DESCRIPTIONS = {
+    en: "Portfolio of Fatemeh Fahimi — architect and Master of Urban Design student at Newcastle University.",
+    tr: "Fatemeh Fahimi'nin portfolyosu — Newcastle Üniversitesi Kentsel Tasarım yüksek lisans mezunu mimar.",
+    fa: "\u0646\u0645\u0648\u0646\u0647\u200c\u06a9\u0627\u0631\u0647\u0627\u06cc \u0641\u0627\u0637\u0645\u0647 \u0641\u0647\u06cc\u0645\u06cc — \u0645\u0639\u0645\u0627\u0631 \u0648 \u062f\u0627\u0646\u0634\u200c\u0622\u0645\u0648\u062e\u062a\u0647 \u0637\u0631\u0627\u062d\u06cc \u0634\u0647\u0631\u06cc \u062f\u0627\u0646\u0634\u06af\u0627\u0647 \u0646\u06cc\u0648\u06a9\u0627\u0633\u0644."
+  };
+
+  const getLangFromURL = () => {
+    try {
+      const q = new URLSearchParams(window.location.search).get("lang");
+      return q ? q.toLowerCase() : null;
+    } catch (e) { return null; }
+  };
+
+  let currentLang = getLangFromURL();
+  if (!LANGS.includes(currentLang)) {
+    currentLang = localStorage.getItem("portfolio-lang") || "en";
+  }
+  if (!LANGS.includes(currentLang)) {
+    const nav = (navigator.language || "en").toLowerCase();
+    currentLang = nav.startsWith("fa") ? "fa" : nav.startsWith("tr") ? "tr" : "en";
+  }
+
+  const applyLang = (lang, opts) => {
+    const dict = translations[lang];
+    if (!dict) return;
+    currentLang = lang;
+    opts = opts || {};
+
+    document.documentElement.setAttribute("lang", lang);
+    document.documentElement.setAttribute("dir", lang === "fa" ? "rtl" : "ltr");
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-aria");
+      if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
+    });
+
+    document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-title");
+      if (dict[key] !== undefined) {
+        el.setAttribute("title", dict[key]);
+        if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", dict[key]);
+      }
+    });
+
+    document.title = TITLES[lang] || TITLES.en;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && DESCRIPTIONS[lang]) metaDesc.setAttribute("content", DESCRIPTIONS[lang]);
+
+    const CV_FILES = {
+      en: "Fatemeh-Fahimi-CV-EN.pdf",
+      tr: "Fatemeh-Fahimi-CV-TR.pdf",
+      fa: "Fatemeh-Fahimi-CV-FA.pdf"
+    };
+    const cvFile = CV_FILES[lang] || CV_FILES.en;
+    document.querySelectorAll("#cv-download-hero, #cv-download-contact").forEach((el) => {
+      el.setAttribute("href", cvFile);
+    });
+
+    switcher.querySelectorAll("[data-lang]").forEach((btn) => {
+      const active = btn.getAttribute("data-lang") === lang;
+      btn.classList.toggle("is-active", active);
+      if (active) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
+      btn.setAttribute("aria-pressed", String(active));
+    });
+
+    try { localStorage.setItem("portfolio-lang", lang); } catch (e) {}
+
+    // Keep shareable ?lang= deep link in the address bar (no reload)
+    try {
+      const url = new URL(window.location.href);
+      if (url.searchParams.get("lang") !== lang) {
+        url.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", url);
+      }
+    } catch (e) {}
+
+    if (!opts.initial) {
+      const nav = document.getElementById("primary-nav");
+      const toggle = document.querySelector(".nav-toggle");
+      if (nav && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      }
+    }
+  };
+
+  switcher.querySelectorAll("[data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+  });
+
+  applyLang(currentLang, { initial: true });
+}
+
+/* ── Sticky header shadow on scroll ── */
+function initHeaderShadow() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+initLanguageSwitcher();
+initHeaderShadow();
 initRevealAnimations();
 initItemReveal();
 initRevealFallback();
